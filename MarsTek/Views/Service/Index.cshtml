@@ -8,7 +8,7 @@
         </div>
         <div class="col-6 text-right">
             <a asp-controller="Service" asp-action="Create" class="btn btn-primary">
-                Create New Service
+                <i class="fas fa-plus"></i> Create New Service
             </a>
         </div>
     </div>
@@ -17,7 +17,7 @@
 
     @if(Model.Count()>0)
     {
-        <table class="table table-bordered table-striped" style="width100%">
+        <table class="table table-bordered table-striped" style="width:100%">
             <thead>
                 <tr>
                     <th>
@@ -29,6 +29,9 @@
                     <th>
                         Info
                     </th>
+                    <th>
+                        Edit or Delete
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -36,11 +39,24 @@
                 {
                     <tr>
                         <td width50%>
-                            <img width="100" height="100" src=@obj.PicUrl /> @obj.Name
-                        </td><td width30%>
+                            <img width="150" height="100" src=@obj.PicUrl /> @obj.Name
+                        </td>
+                        <td width30%>
                             @obj.Kind
                         </td>
-                        <td width40%>@obj.InfoBody</td>
+                        <td width40%>
+                            @obj.InfoBody
+                        </td>
+                        <td width30% class="Text-center">
+                            <div class="w-75 btn-group" role="group">
+                                <a asp-controller="Service" asp-route-Id="@obj.Id" asp-action="Edit" class="btn btn-primary mx-2">
+                                    <i class="far fa-edit"></i> Edit
+                                </a>
+                                <a asp-controller="Service" asp-route-Id="@obj.Id" asp-action="Delete" class="btn btn-danger">
+                                    <i class="fas fa-trash-alt"></i> Delete
+                                </a>
+                            </div>
+                        </td>
                     </tr>
                 }
             </tbody>

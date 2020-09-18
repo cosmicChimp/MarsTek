@@ -10,7 +10,9 @@ namespace MarsTek.Models
     {
         [Key]
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Kind { get; set; }
         public string InfoBody { get; set; }
         public string PicUrl { get; set; }
