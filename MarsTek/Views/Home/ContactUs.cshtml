@@ -1,0 +1,26 @@
+﻿@model MarsTek.Dtos.SendMailDto
+@{
+    ViewData["Title"] = "ContactUs";
+}
+
+<p>@ViewBag.Message</p>
+
+<form method="post" class="col-6">
+    <div class="form-group">
+        <label asp-for="@Model.Name"></label>
+        <input type="text" asp-for="@Model.Name" class="form-control" placeholder="Enter your name" />
+        <span class="text-danger" asp-validation-for="@Model.Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Subject"></label>
+        <input type="text" asp-for="@Model.Subject" class="form-control" placeholder="Subject" />
+        <span class="text-danger" asp-validation-for="@Model.Subject"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Message"></label>
+        <textarea asp-for="@Model.Message" class="form-control" placeholder="Type message here"></textarea>
+        <span class="text-danger" asp-validation-for="@Model.Message"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Send Message</button>
+</form>
+
